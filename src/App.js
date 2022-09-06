@@ -12,6 +12,7 @@ import Bollywood from './Components/Pages/Trending/Bollywood';
 import Tamil from './Components/Pages/Trending/Tamil';
 import Telegu from "./Components/Pages/Trending/Telegu";
 import AllMovies from './Components/Pages/Trending/AllMovies';
+import Footer from "./Components/Shared/Footer";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="allItem" element={<AllMovies></AllMovies>} />
         </Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
