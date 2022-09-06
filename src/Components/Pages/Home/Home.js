@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Family from '../Family/Family';
+import FreeTrial from '../FreeTrial/FreeTrial';
 import MovieCard from '../MovieCard/MovieCard';
 import Service from '../Service/Service';
 import Hollywood from '../Trending/Hollywood';
@@ -18,6 +19,7 @@ const Home = () => {
             <Hollywood></Hollywood>
             <Family></Family>
             <MovieCard></MovieCard>
+            <FreeTrial></FreeTrial>
         </div>
     );
 };
