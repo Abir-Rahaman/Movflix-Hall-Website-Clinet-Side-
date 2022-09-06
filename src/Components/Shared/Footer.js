@@ -7,7 +7,7 @@ import { GrMail } from 'react-icons/gr';
 
 const Footer = () => {
   return (
-    <div className="mx-20 ">
+    <div className="mx-20 mb-20">
       <footer class="footer p-10 border-4 border-green-400 rounded-3xl ">
         <div class="96">
         <Link to="/" class="btn btn-ghost normal-case text-3xl text-green-400 font-bold font-mono">MovFlix</Link>
