@@ -25,7 +25,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div class="navbar bg-base-100 pt-6 px-24">
+    <div class="navbar bg-base-100 pt-6 lg:px-24 ">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabIndex="0" class="btn btn-ghost lg:hidden">
@@ -42,8 +42,8 @@ const Navbar = () => {
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0 font-bold ">{menuItems}</ul>
       </div>
-      <div class="navbar-end">
-        <button class="btn rounded-full px-12 bg-green-400 border-none"> Sing In </button>
+      <div class="navbar-end lg:ml-0 ml-44 ">
+        <button class="btn rounded-full px-12 bg-green-400 border-none "> Sing In </button>
       </div>
     </div>
   );
