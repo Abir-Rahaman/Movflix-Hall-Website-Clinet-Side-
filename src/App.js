@@ -13,6 +13,8 @@ import Tamil from './Components/Pages/Trending/Tamil';
 import Telegu from "./Components/Pages/Trending/Telegu";
 import AllMovies from './Components/Pages/Trending/AllMovies';
 import Footer from "./Components/Shared/Footer";
+import Booking from './Components/Pages/Booking/Booking';
+import BookingBnner from "./Components/Pages/Booking/BookingBnner";
 
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
           <Route path="telegu" element={<Telegu></Telegu>} />
           <Route path="allItem" element={<AllMovies></AllMovies>} />
         </Route>
+        <Route path="/booking" element={<Booking></Booking>} /> 
+        <Route path="/bookingCinema" element={<BookingBnner></BookingBnner>} /> 
       </Routes>
       <Footer></Footer>
     </div>

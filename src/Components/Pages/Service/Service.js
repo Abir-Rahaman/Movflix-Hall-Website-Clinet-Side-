@@ -2,6 +2,7 @@ import React from "react";
 import poster from "../../Assets/poster.jpg";
 import { MdOutlineLiveTv,MdSell } from "react-icons/md";
 import { BsCameraReels} from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 
 const Service = () => {
@@ -11,7 +12,7 @@ const Service = () => {
         <div class="hero-content flex-col lg:flex-row justify-between gap-24">
           <div className="w-full lg:mt-20 content-center">
             <img src={poster} class=" rounded-lg shadow-2xl " alt="" />
-            <button class="btn border-4 flex justify-center	 px-6 bg-transparent mx-auto text-black rounded-none my-4 font-bold hover:bg-gradient-to-r from-green-600 to-green-400 duration-700 hover:text-white hover:border-none"> <span className="text-xl mr-2 ">  <MdSell/> </span>Get Ticket</button>
+           <Link to='/booking'> <button class="btn border-4 flex justify-center	 px-6 bg-transparent mx-auto text-black rounded-none my-4 font-bold hover:bg-gradient-to-r from-green-600 to-green-400 duration-700 hover:text-white hover:border-none"> <span className="text-xl mr-2 ">  <MdSell/> </span>Get Ticket</button> </Link>
           </div>
           <div>
             <h1 class=" font-bold text-green-400">Our Main Services</h1>
