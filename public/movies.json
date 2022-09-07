@@ -1,0 +1,133 @@
+
+[
+    {
+      "picture": "https://i.ibb.co/9Hfw6XK/movie1.jpg",
+      "MovieName": "Nash",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "proident eu adipisicing anim velit magna veniam incididunt incididunt culpa"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/s5mxFNn/movie2.jpg",
+      "MovieName": "Sophie",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "laborum sunt reprehenderit minim laboris aute commodo qui irure nostrud"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/BK4RNtC/movie3.jpg",
+      "MovieName": "Kasey",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "est nisi voluptate et aliqua enim amet in voluptate sunt"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/m9tncV9/movie4.jpg",
+      "MovieName": "Burt",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "et sit sunt fugiat elit amet laboris est Lorem veniam"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/mHhYqpy/movie5.jpg",
+      "MovieName": "Guadalupe",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "ad Lorem enim Lorem cupidatat amet aliquip amet qui magna"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/Kwpd6KJ/movie6.jpg",
+      "MovieName": "Bertie",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "dolore voluptate magna ullamco cillum Lorem magna ex elit officia"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/BK4RNtC/movie3.jpg",
+      "MovieName": "Keller",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "eu nostrud enim commodo magna officia consectetur in sit magna"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/mHhYqpy/movie5.jpg",
+      "MovieName": "Farley",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "anim amet adipisicing nisi officia elit nisi ipsum aliqua consequat"
+      ]
+    },
+    {
+      "picture": "https://i.ibb.co/s5mxFNn/movie2.jpg",
+      "MovieName": "Simmons",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "adipisicing ullamco exercitation eiusmod incididunt pariatur tempor ex excepteur proident"
+      ]
+    },
+  {
+      "picture": "https://i.ibb.co/9Hfw6XK/movie1.jpg",
+      "MovieName": "Simmons",
+      "DIRECTOR": "MURTAZA OTASH JAMJAM",
+      "RUNTIME": "2h 30m",
+      "CAST": "Ananta Jalil, Afiea Nusrat Barsha",
+      "GENRE": "Action",
+      "Language": "Bangla",
+      "RELEASEDATE": "2022-07-10",
+      "details": [
+        "adipisicing ullamco exercitation eiusmod incididunt pariatur tempor ex excepteur proident"
+      ]
+    }
+  ]

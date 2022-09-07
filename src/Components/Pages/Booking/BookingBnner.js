@@ -3,6 +3,8 @@ import booking from "../../Assets/booking.jpg";
 import { DayPicker } from "react-day-picker";
 import { format } from 'date-fns';
 import "react-day-picker/dist/style.css";
+import { Link } from 'react-router-dom';
+
 
 const BookingBnner = () => {
     const [selected, setSelected] = React.useState(new Date());
@@ -12,8 +14,12 @@ const BookingBnner = () => {
     }
   return (
     <>
-      <h1 className="text-3xl text-green-400 font-bold text-center my-20 ">Booking Your Online Ticket For Our Service </h1>
+      <h1 className="text-3xl text-green-400 font-bold text-center my-20 ">Booking Your Online Ticket For Our Service </h1> 
+      <div className="flex justify-center">
+        <Link to="/choose"><button class="btn border-4 px-8  bg-transparent text-black rounded-full font-bold hover:bg-gradient-to-r from-green-600 to-green-400 duration-700 gap-4"> <span className="text-2xl"></span> Choose Movie </button></Link>
+      </div>
       <div class="hero  my-20 ">
+        
         <div class="hero-content flex-col lg:flex-row-reverse gap-32">
           <img src={booking} class="max-w-sm rounded-lg shadow-2xl" alt="Shadow" />
           <div class=" ">
@@ -25,7 +31,8 @@ const BookingBnner = () => {
           </div>
         </div>
       </div>
-      {footer}
+      {footer} 
+     
     </>
   );
 };

@@ -3,7 +3,6 @@ import Home from "./Components/Pages/Home/Home";
 import Navbar from "./Components/Shared/Navbar";
 import Contact from './Components/Pages/Contact/Contact';
 import UpcomingCard from './Components/Pages/UpcomingCard/UpcomingCard';
-import Romantic from "./Components/Pages/UpcomingCard/Romantic";
 import Horror from './Components/Pages/UpcomingCard/Horror';
 import Action from './Components/Pages/UpcomingCard/Action';
 import Comedy from "./Components/Pages/UpcomingCard/Comedy";
@@ -15,6 +14,7 @@ import AllMovies from './Components/Pages/Trending/AllMovies';
 import Footer from "./Components/Shared/Footer";
 import Booking from './Components/Pages/Booking/Booking';
 import BookingBnner from "./Components/Pages/Booking/BookingBnner";
+import BookingTicket from "./Components/Pages/Booking/BookingTicket";
 
 
 function App() {
@@ -37,6 +37,7 @@ function App() {
         </Route>
         <Route path="/booking" element={<Booking></Booking>} /> 
         <Route path="/bookingCinema" element={<BookingBnner></BookingBnner>} /> 
+        <Route path="/choose" element={<BookingTicket></BookingTicket>} /> 
       </Routes>
       <Footer></Footer>
     </div>
