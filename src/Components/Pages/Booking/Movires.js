@@ -1,6 +1,6 @@
 import React from "react";
 
-const Movires = ({ movie }) => {
+const Movires = ({ movie,setModalMovie }) => {
     const {picture,MovieName,DIRECTOR,RUNTIME,CAST,GENRE,Language,RELEASEDATE,details} =movie;
    
   return (
@@ -16,7 +16,7 @@ const Movires = ({ movie }) => {
       <h2 class="">RELEASEDATE: {RELEASEDATE}</h2>
       <h2 class="">Info: {details}</h2>
       <div class="card-actions justify-start">
-        <button class="btn btn-primary">Select</button>
+        <label onClick={()=> setModalMovie(movie)} for="booking-modal" class="btn btn-primary">Selec</label>
       </div>
     </div>
   </div>
