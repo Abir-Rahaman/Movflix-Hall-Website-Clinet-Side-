@@ -6,8 +6,8 @@ import "react-day-picker/dist/style.css";
 import { Link } from 'react-router-dom';
 
 
-const BookingBnner = () => {
-    const [selected, setSelected] = React.useState(new Date());
+const BookingBnner = ({setSelected,selected}) => {
+   
     let footer = <p>Please pick a day.</p>;
     if (selected) {
       footer = <p className="text-xl font-bold text-green-400 text-center my-20"> You Booked Your Ticket For{format(selected, 'PP')}.</p>;

@@ -43,7 +43,7 @@ const Navbar = () => {
         <ul class="menu menu-horizontal p-0 font-bold ">{menuItems}</ul>
       </div>
       <div class="navbar-end lg:ml-0 ml-44 ">
-        <button class="btn rounded-full px-12 bg-green-400 border-none "> Sing In </button>
+       <Link to="/login"> <button class="btn rounded-full px-12 bg-green-400 border-none "> Sing In </button></Link>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Movires = ({ movie,setModalMovie }) => {
-    const {picture,MovieName,DIRECTOR,RUNTIME,CAST,GENRE,Language,RELEASEDATE,details} =movie;
+    const {picture,MovieName,DIRECTOR,RUNTIME,CAST,GENRE,Language,RELEASEDATE,details,slots} =movie;
    
   return (
     <div class="card lg:card-side bg-base-200 shadow-xl  pl-44">
@@ -14,9 +14,10 @@ const Movires = ({ movie,setModalMovie }) => {
       <h2 class="">Genre: {GENRE}</h2>
       <h2 class="">Language: {Language}</h2>
       <h2 class="">RELEASEDATE: {RELEASEDATE}</h2>
+      <h2 class="">Schedule: {slots}</h2>
       <h2 class="">Info: {details}</h2>
       <div class="card-actions justify-start">
-        <label onClick={()=> setModalMovie(movie)} for="booking-modal" class="btn btn-primary">Selec</label>
+        <label onClick={()=> setModalMovie(movie)} for="booking-modal" class="btn btn-primary">Select</label>
       </div>
     </div>
   </div>

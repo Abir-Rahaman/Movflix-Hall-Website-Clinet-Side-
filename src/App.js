@@ -15,11 +15,17 @@ import Footer from "./Components/Shared/Footer";
 import Booking from './Components/Pages/Booking/Booking';
 import BookingBnner from "./Components/Pages/Booking/BookingBnner";
 import BookingTicket from "./Components/Pages/Booking/BookingTicket";
+import React, { useState } from "react";
+import LogIn from "./Components/Pages/LogIn/LogIn";
+
 
 
 function App() {
+  const [selected, setSelected] = React.useState(new Date());
+
   return (
     <div className="App">
+      
        <Navbar></Navbar>
        <Routes>
         <Route path="/" element={<Home />} />
@@ -36,8 +42,9 @@ function App() {
           <Route path="allItem" element={<AllMovies></AllMovies>} />
         </Route>
         <Route path="/booking" element={<Booking></Booking>} /> 
-        <Route path="/bookingCinema" element={<BookingBnner></BookingBnner>} /> 
-        <Route path="/choose" element={<BookingTicket></BookingTicket>} /> 
+        <Route path="/bookingCinema" element={<BookingBnner selected={selected} setSelected={setSelected}></BookingBnner>} /> 
+        <Route path="/choose" element={<BookingTicket selected={selected} setSelected={setSelected}></BookingTicket>} /> 
+        <Route path="/login" element={<LogIn></LogIn>} /> 
       </Routes>
       <Footer></Footer>
     </div>
