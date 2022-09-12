@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:process.env.REACT_APP_APIKEY,
-  authDomain:process.env.REACT_APP_AUTHDOMAIN,
-  projectId:process.env.REACT_APP_PROJECTID,
-  storageBucket:process.env.REACT_APP_STORAGEBUCKET,
-  messagingSenderId:process.env.REACT_APP_MESSAGINGSENDERID,
-  appId:process.env.REACT_APP_APPID,
+  apiKey: "AIzaSyBeI4fvFiHv1v_3er-1Pn7fLqbJzgtr2bY",
+  authDomain: "movflix-application.firebaseapp.com",
+  projectId: "movflix-application",
+  storageBucket: "movflix-application.appspot.com",
+  messagingSenderId: "551408851237",
+  appId: "1:551408851237:web:b07c57e3264281a6dce2cc"
 };
 
 // Initialize Firebase
