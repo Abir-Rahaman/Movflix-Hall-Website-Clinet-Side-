@@ -17,6 +17,8 @@ import BookingBnner from "./Components/Pages/Booking/BookingBnner";
 import BookingTicket from "./Components/Pages/Booking/BookingTicket";
 import React, { useState } from "react";
 import LogIn from "./Components/Pages/LogIn/LogIn";
+import SignIn from './Components/Pages/SignIn/SignIn';
+import RequireAuth from './Components/Shared/RequireAuth';
 
 
 
@@ -41,10 +43,11 @@ function App() {
           <Route path="telegu" element={<Telegu></Telegu>} />
           <Route path="allItem" element={<AllMovies></AllMovies>} />
         </Route>
-        <Route path="/booking" element={<Booking></Booking>} /> 
+        <Route path="/booking" element={<RequireAuth><Booking></Booking></RequireAuth>} /> 
         <Route path="/bookingCinema" element={<BookingBnner selected={selected} setSelected={setSelected}></BookingBnner>} /> 
         <Route path="/choose" element={<BookingTicket selected={selected} setSelected={setSelected}></BookingTicket>} /> 
         <Route path="/login" element={<LogIn></LogIn>} /> 
+        <Route path="/signIn" element={<SignIn></SignIn>} /> 
       </Routes>
       <Footer></Footer>
     </div>

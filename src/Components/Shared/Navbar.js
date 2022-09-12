@@ -1,7 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState} from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
+
+
 
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+    navigate('/')
+  };
+  const navigate = useNavigate()
+  
   const menuItems = (
     <>
       <li className="hover:text-green-400">
@@ -43,7 +55,8 @@ const Navbar = () => {
         <ul class="menu menu-horizontal p-0 font-bold ">{menuItems}</ul>
       </div>
       <div class="navbar-end lg:ml-0 ml-44 ">
-       <Link to="/login"> <button class="btn rounded-full px-12 bg-green-400 border-none "> Sing In </button></Link>
+        {user ?  <button onClick={logout} class="btn rounded-full px-12 bg-green-400 border-none "> Sing Out </button> :  <Link to="/login"> <button class="btn rounded-full px-12 bg-green-400 border-none "> Sing In </button></Link> }
+        
       </div>
     </div>
   );
