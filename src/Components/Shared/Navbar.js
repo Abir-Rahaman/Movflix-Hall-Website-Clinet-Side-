@@ -22,6 +22,11 @@ const Navbar = () => {
       <li  className="hover:text-green-400">
         <Link to="/booking"> Book Online  </Link>
       </li>
+      {
+        user && <li  className="hover:text-green-400">
+        <Link to="/dashboard"> Dashboard </Link>
+      </li>
+      }
       <li  className="hover:text-green-400">
         <Link to="/show"> Blockbuster Show </Link>
       </li>
@@ -34,6 +39,7 @@ const Navbar = () => {
       <li  className="hover:text-green-400">
         <Link to="/contact"> Contact </Link>
       </li>
+      
     </>
   );
   return (

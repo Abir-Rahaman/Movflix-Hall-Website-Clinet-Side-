@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect } from "react";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
@@ -8,7 +8,7 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Spinner from "../../Shared/Spinner";
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const LogIn = () => {
   const {
@@ -16,13 +16,19 @@ const LogIn = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [signInWithGoogle, googleLoading, googleError,googleUser] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleLoading, googleError, googleUser] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
   let errorMessage;
   const navigate = useNavigate();
-  const location =useLocation();
-  let from = location.state?.from?.pathname || '/'
-  
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (user || googleUser) {
+      navigate(from, { replace: true });
+    }
+  }, [user,googleUser,navigate,from]);
+
   if (loading || googleLoading) {
     return <Spinner></Spinner>;
   }
@@ -34,15 +40,11 @@ const LogIn = () => {
       </p>
     );
   }
-  if(user || googleUser){
-      navigate(from, {replace: true});
-  }
+  
 
   const onSubmit = (data) => {
-    signInWithEmailAndPassword(data.email,data.password);
+    signInWithEmailAndPassword(data.email, data.password);
   };
-
- 
 
   return (
     <div className="bg-base-200  flex-col">
@@ -110,7 +112,15 @@ const LogIn = () => {
                     value="Log In"
                   />
                 </div>
-                <p className="text-center"><small> New ? <Link className="text-green-400 font-bold" to='/signIn'>Create an account </Link></small></p>
+                <p className="text-center">
+                  <small>
+                    {" "}
+                    New ?{" "}
+                    <Link className="text-green-400 font-bold" to="/signIn">
+                      Create an account{" "}
+                    </Link>
+                  </small>
+                </p>
                 <div class="divider">OR</div>
                 <div className="flex justify-center text-4xl gap-8 mt-4">
                   <span onClick={() => signInWithGoogle()}>

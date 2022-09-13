@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
 import Navbar from "./Components/Shared/Navbar";
@@ -15,19 +16,19 @@ import Footer from "./Components/Shared/Footer";
 import Booking from './Components/Pages/Booking/Booking';
 import BookingBnner from "./Components/Pages/Booking/BookingBnner";
 import BookingTicket from "./Components/Pages/Booking/BookingTicket";
-import React, { useState } from "react";
 import LogIn from "./Components/Pages/LogIn/LogIn";
 import SignIn from './Components/Pages/SignIn/SignIn';
 import RequireAuth from './Components/Shared/RequireAuth';
-
-
+import  { Toaster } from 'react-hot-toast';
+import Dashboard from './Components/Pages/Dahboard/Dashboard';
+import MyBooking from "./Components/Pages/Dahboard/MyBooking";
+import MyReview from "./Components/Pages/Dahboard/MyReview";
 
 function App() {
   const [selected, setSelected] = React.useState(new Date());
 
   return (
     <div className="App">
-      
        <Navbar></Navbar>
        <Routes>
         <Route path="/" element={<Home />} />
@@ -48,8 +49,14 @@ function App() {
         <Route path="/choose" element={<BookingTicket selected={selected} setSelected={setSelected}></BookingTicket>} /> 
         <Route path="/login" element={<LogIn></LogIn>} /> 
         <Route path="/signIn" element={<SignIn></SignIn>} /> 
+        <Route path="/dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+          <Route index element={<MyBooking></MyBooking>} />
+          <Route path="review" element={<MyReview></MyReview>} />
+          <Route path="comedy" element={<Comedy></Comedy>} />
+        </Route>
       </Routes>
       <Footer></Footer>
+      <Toaster />
     </div>
   );
 }
