@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
@@ -7,43 +7,60 @@ import auth from "../../../firebase.init";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Spinner from "../../Shared/Spinner";
-import { Link } from "react-router-dom";
-import { useSendEmailVerification } from "react-firebase-hooks/auth";
+import { Link, useNavigate,useLocation } from "react-router-dom";
+
+
 
 
 const SignIn = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
-  const [signInWithGoogle, googleLoading, googleError] = useSignInWithGoogle(auth);
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
-  const onSubmit = async (data) => {
-     await  createUserWithEmailAndPassword(data.email, data.password);
-     await updateProfile({displayName:data.name })
-     console.log("update");
-     console.log(data)
-     
-  };
-  const [sendEmailVerification, sending] = useSendEmailVerification(auth);
-  const [updateProfile, updating] = useUpdateProfile(auth);
 
+  const [signInWithGoogle, googleLoading, googleError,googleUser] = useSignInWithGoogle(auth);
+  const { register, formState: { errors }, handleSubmit } = useForm();
 
-  if (loading || googleLoading) {
-    return <Spinner></Spinner>;
-  }
+  const [createUserWithEmailAndPassword,user,loading,error] = useCreateUserWithEmailAndPassword(auth);
+
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+ 
 
   let errorMessage;
 
-  if (error || googleError) {
-    errorMessage = (
-      <p className="text-red-400 font-bold text-center">
-        {" "}
-        <small> {error?.message || googleError?.message} </small>
-      </p>
-    );
-  }
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  
+
+  
+  useEffect( () =>{
+    if (user || googleUser) {
+        navigate(from, { replace: true });
+    }
+}, [user, googleUser, from, navigate])
+ 
+
+
+    if (loading || googleLoading) {
+      return <Spinner></Spinner>;
+    }
+
+    if (error || googleError) {
+      errorMessage = (
+        <p className="text-red-400 font-bold text-center">
+          <small> {error?.message || googleError?.message} </small>
+        </p>
+      );
+    }
+
+
+
+
+
+  const onSubmit = async (data) => {
+     await  createUserWithEmailAndPassword(data.email, data.password);
+     await updateProfile({displayName:data.name })
+    //  navigate('/')
+  };
+ 
+  
   return (
     <div className="bg-base-200  flex-col">
       <div class="hero pt-24 pb-6">
@@ -131,8 +148,7 @@ const SignIn = () => {
                 </div>
                 <p className="text-center">
                   <small>
-                    {" "}
-                    Already have an account?{" "}
+                    Already have an account?
                     <Link className="text-green-400 font-bold" to="/logIn">
                       Sing In
                     </Link>
@@ -146,16 +162,7 @@ const SignIn = () => {
                   <ImGithub />
                   <GrFacebook />
                 </div>
-                <button
-                onClick={async () => {
-                  await sendEmailVerification();
-                  alert("Sent email");
-                }}
-              >
-                Verify email
-              </button>
               </form>
-             
             </div>
           </div>
         </div>

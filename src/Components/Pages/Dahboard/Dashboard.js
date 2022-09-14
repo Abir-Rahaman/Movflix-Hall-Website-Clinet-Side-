@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./../../../firebase.init";
 
@@ -22,10 +22,10 @@ const Dashboard = () => {
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <a>My Appointment </a>
+            <Link to="/dashboard">My Appointment </Link>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+               <Link to="/dashboard/review">My Review </Link>
           </li>
         </ul>
       </div>

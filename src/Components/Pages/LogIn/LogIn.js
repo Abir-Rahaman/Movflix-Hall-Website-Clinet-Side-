@@ -1,46 +1,47 @@
 import { React, useEffect } from "react";
+import { useSignInWithEmailAndPassword ,useSignInWithGoogle} from "react-firebase-hooks/auth";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { GrFacebook } from "react-icons/gr";
 import auth from "../../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Spinner from "../../Shared/Spinner";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const LogIn = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
-  const [signInWithGoogle, googleLoading, googleError, googleUser] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const {register,formState: { errors },handleSubmit} = useForm();
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  
   let errorMessage;
+
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-
-  useEffect(() => {
-    if (user || googleUser) {
-      navigate(from, { replace: true });
-    }
-  }, [user,googleUser,navigate,from]);
-
-  if (loading || googleLoading) {
-    return <Spinner></Spinner>;
-  }
-
-  if (error || googleError) {
-    errorMessage = (
-      <p className="text-red-400 font-bold text-center">
-        <small> {error?.message || googleError?.message} </small>
-      </p>
-    );
-  }
   
+
+  
+  useEffect( () =>{
+    if (user || googleUser) {
+        navigate(from, { replace: true });
+    }
+}, [user, googleUser, from, navigate])
+ 
+
+
+    if (loading || googleLoading) {
+      return <Spinner></Spinner>;
+    }
+
+    if (error || googleError) {
+      errorMessage = (
+        <p className="text-red-400 font-bold text-center">
+          <small> {error?.message || googleError?.message} </small>
+        </p>
+      );
+    }
+
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
@@ -123,7 +124,7 @@ const LogIn = () => {
                 </p>
                 <div class="divider">OR</div>
                 <div className="flex justify-center text-4xl gap-8 mt-4">
-                  <span onClick={() => signInWithGoogle()}>
+                  <span  onClick={() => signInWithGoogle()}>
                     <FcGoogle />
                   </span>
                   <ImGithub />
