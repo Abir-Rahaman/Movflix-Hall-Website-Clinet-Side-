@@ -7,19 +7,22 @@ import auth from "../../../firebase.init";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Spinner from "../../Shared/Spinner";
-import { Link, useNavigate,useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useToken from './../../Hooks/useToken';
 
 
 
 
 const SignIn = () => {
 
-  const [signInWithGoogle, googleLoading, googleError,googleUser] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const { register, formState: { errors }, handleSubmit } = useForm();
 
   const [createUserWithEmailAndPassword,user,loading,error] = useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const [token] = useToken(user || googleUser);
  
 
   let errorMessage;
