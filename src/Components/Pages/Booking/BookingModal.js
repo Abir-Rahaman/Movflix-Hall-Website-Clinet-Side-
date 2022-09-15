@@ -10,12 +10,10 @@ const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}
   const {_id,MovieName,slots,RELEASEDATE,RUNTIME,CAST} = modalMovie;
   const [user, loading, error] = useAuthState(auth);
 
-  console.log(modalMovie);
 
   const handleBooking = (e) =>{
     e.preventDefault();
     const formattedDate = format(selected, 'PP');
-    const email = e.target.email.value;
     const slot = e.target.slot.value;
     const booking ={
       bookingId: _id,
@@ -65,7 +63,8 @@ const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}
                   {/* <option value={slots[0]}>{slots[0]}</option>
                   <option value={slots[1]}>{slots[1]}</option>
                   <option value={slots[2]}>{slots[2]}</option> */}
-                  {/* {slots.map(slot => <option value={slot}>{slot}</option>)} */}
+                 
+                 {/* { slots.map(slot => (<option value={slot} >{slot}</option>))} */}
                   <option value="slots">{slots}</option>
             </select>
             <select name="seat" required class="select select-primary w-full max-w-xs">
@@ -88,7 +87,7 @@ const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}
                   <option></option>
               
             </select>
-            <input type="email" required name='email' placeholder="Your Email" class="input input-bordered input-primary w-full max-w-xs" />
+            <input type="email" disabled required value={user.email} name='email' placeholder="Your Email" class="input input-bordered input-primary w-full max-w-xs" />
             <input type="text" required name='number' placeholder="Your Number" class="input input-bordered input-primary w-full max-w-xs" />
             <input type="submit" className="btn rounded-full px-12 bg-green-400 border-none w-80" value="Next" />
           </form>

@@ -28,17 +28,8 @@ const SignIn = () => {
   let errorMessage;
 
   const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
-  
 
-  
-  useEffect( () =>{
-    if (user || googleUser) {
-        navigate(from, { replace: true });
-    }
-}, [user, googleUser, from, navigate])
- 
+
 
 
     if (loading || googleLoading) {
@@ -53,7 +44,9 @@ const SignIn = () => {
       );
     }
 
-
+   if(token){
+     navigate('/booking')
+   }
 
 
 

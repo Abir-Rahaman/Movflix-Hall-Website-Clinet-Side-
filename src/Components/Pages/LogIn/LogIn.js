@@ -8,6 +8,7 @@ import auth from "../../../firebase.init";
 import { useForm } from "react-hook-form";
 import Spinner from "../../Shared/Spinner";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import useToken from './../../Hooks/useToken';
 
 const LogIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -20,13 +21,13 @@ const LogIn = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   
-
+  const [token] = useToken(user || googleUser);
   
   useEffect( () =>{
-    if (user || googleUser) {
+    if (token) {
         navigate(from, { replace: true });
     }
-}, [user, googleUser, from, navigate])
+}, [token, from, navigate])
  
 
 

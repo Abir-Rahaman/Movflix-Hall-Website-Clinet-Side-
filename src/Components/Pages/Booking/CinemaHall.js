@@ -31,7 +31,7 @@ const CinemaHall = () => {
             <div class="card-actions justify-center">
               <Link to="/bookingCinema">
                 {" "}
-                <button class="btn btn-primary content-center	 ">Book </button>
+                <button class="btn btn-primary content-center">Book </button>
               </Link>{" "}
             </div>
           </div>
