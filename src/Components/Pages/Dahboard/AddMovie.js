@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const AddMovie = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, reset , formState: { errors }, handleSubmit } = useForm();
     const imgKey = '69fb380d3c03cfe1603dcae97afcc89a';
    
 
@@ -44,10 +44,14 @@ const AddMovie = () => {
               })
               .then(res => res.json())
               .then(inserted => {
-                if(inserted.acknowledged === true){
-                    toast.success('Inserted Movie Successfully')
-                }
+                if(inserted.success) {
+                    toast.success(' Movie Added Successfully Done')
+                  }
+                  else{
+                    toast.error('Already Added This Movie On Database')
+                  }
 
+                  reset()
               })
             }
         })
