@@ -30,7 +30,10 @@ const Dashboard = () => {
                <Link to="/dashboard/review">My Review </Link>
           </li>
           <li>
-               {admin && <Link to="/dashboard/allUsers"> All Users </Link>}
+               {admin && <>
+                <Link to="/dashboard/allUsers"> All Users </Link>
+                <Link to="/dashboard/addMovie"> Add Movie</Link>
+               </>}
           </li>
         </ul>
       </div>
