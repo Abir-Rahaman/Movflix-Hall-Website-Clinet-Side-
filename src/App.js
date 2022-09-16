@@ -23,6 +23,8 @@ import  { Toaster } from 'react-hot-toast';
 import Dashboard from './Components/Pages/Dahboard/Dashboard';
 import MyBooking from "./Components/Pages/Dahboard/MyBooking";
 import MyReview from "./Components/Pages/Dahboard/MyReview";
+import AllUsers from './Components/Pages/Dahboard/AllUsers';
+import RequireAdmin from "./Components/Shared/RequireAdmin";
 
 function App() {
   const [selected, setSelected] = React.useState(new Date());
@@ -52,7 +54,7 @@ function App() {
         <Route path="/dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<MyBooking></MyBooking>} />
           <Route path="review" element={<MyReview></MyReview>} />
-          <Route path="comedy" element={<Comedy></Comedy>} />
+          <Route path="allUsers" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>} />
         </Route>
       </Routes>
       <Footer></Footer>

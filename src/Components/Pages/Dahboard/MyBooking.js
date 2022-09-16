@@ -3,20 +3,21 @@ import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
-
 const MyBooking = () => {
   const [user] = useAuthState(auth);
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/bookings?email=${user?.email}`,{
-        method: 'GET',
-        headers:{
-            'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-        }
-    })
+      fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+        method: "GET",
+        headers: {
+          'Accept': "application/json",
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
         .then((res) => res.json())
-        .then((data) => {setBookings(data)});
+        .then((data) => setBookings(data));
     }
   }, [user]);
   return (
@@ -30,18 +31,19 @@ const MyBooking = () => {
               <th>Movie</th>
               <th>Booking Email</th>
               <th>Booking Date</th>
+              <th>Booking Payment</th>
             </tr>
           </thead>
           <tbody>
-            {
-                bookings.map( (booking,index) => <tr>
-                    <th>{index+1}</th>
-                    <td>{booking.movieName}</td>
-                    <td>{booking.email}</td>
-                    <td>{booking.selectedDate}</td>
-                  </tr> )
-            }
-           
+            {bookings.map((booking, index) => (
+              <tr>
+                <th>{index + 1}</th>
+                <td>{booking.movieName}</td>
+                <td>{booking.email}</td>
+                <td>{booking.selectedDate}</td>
+                <td><td><button class="btn btn-xs bg-green-400 border-none">Payment</button></td></td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

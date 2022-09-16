@@ -87,7 +87,7 @@ const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}
                   <option></option>
               
             </select>
-            <input type="email" disabled required value={user.email} name='email' placeholder="Your Email" class="input input-bordered input-primary w-full max-w-xs" />
+            <input type="email" disabled required value={user?.email} name='email' placeholder="Your Email" class="input input-bordered input-primary w-full max-w-xs" />
             <input type="text" required name='number' placeholder="Your Number" class="input input-bordered input-primary w-full max-w-xs" />
             <input type="submit" className="btn rounded-full px-12 bg-green-400 border-none w-80" value="Next" />
           </form>
