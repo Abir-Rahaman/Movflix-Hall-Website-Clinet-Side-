@@ -1,11 +1,59 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 const AddMovie = () => {
+
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const imgKey = '69fb380d3c03cfe1603dcae97afcc89a';
+   
+
     const onSubmit = async (data) => {
-       console.log(data);
+        const formData = new FormData();
+        const image = data.image[0];
+        formData.append('image', image);
+
+        const url = `https://api.imgbb.com/1/upload?key=${imgKey}`
+        fetch(url , {
+            method:"POST",
+            body:formData
+        })
+        .then(res => res.json())
+        .then(result => {
+            if(result.success){
+                const img = result.data.url;
+                const movie = {
+                    MovieName : data.Movie,
+                    Director: data.Director,
+                    Duration: data.Duration,
+                    Cast: data.Cast,
+                    Genre: data.Genre,
+                    Language: data.Language,
+                    Release: data.Release,
+                    Schedule: data.Schedule,
+                    info: data.info,
+                    img:img
+                }
+              fetch("http://localhost:5000/doctor" ,{
+                 method: "POST",
+                 headers:{
+                    'content-type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+                 },
+                 body: JSON.stringify(movie)
+              })
+              .then(res => res.json())
+              .then(inserted => {
+                if(inserted.acknowledged === true){
+                    toast.success('Inserted Movie Successfully')
+                }
+
+              })
+            }
+        })
      };
+     
+    
     return (
         <div>
            <form onSubmit={handleSubmit(onSubmit)}>
@@ -94,8 +142,6 @@ const AddMovie = () => {
                     {errors.Genre?.type === "required" && <span class="label-text-alt text-red-600"> {errors.Genre.message} </span>}
                   </label>
                 </div>
-             
-                
                 </div>
                 <div className="">
                 <div class="form-control  w-full max-w-xs">
@@ -148,18 +194,18 @@ const AddMovie = () => {
                 </div>
                 <div class="form-control  w-full max-w-xs">
                   <input
-                    {...register("Duration", {
+                    {...register("info", {
                       required: {
                         value: true,
-                        message: "Movie Duration is required",
+                        message: "Movie info is required",
                       },
                     })}
                     type="text"
-                    placeholder="Movie Duration"
+                    placeholder="Movie info"
                     class="input  input-bordered w-full max-w-xs"
                   />
                   <label class="label">
-                    {errors.Duration?.type === "required" && <span class="label-text-alt text-red-600"> {errors.Duration.message} </span>}
+                    {errors.info?.type === "required" && <span class="label-text-alt text-red-600"> {errors.info.message} </span>}
                   </label>
                 </div>
                 <div class="form-control  w-full max-w-xs">
