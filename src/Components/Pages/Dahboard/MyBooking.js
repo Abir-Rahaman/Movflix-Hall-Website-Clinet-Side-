@@ -12,15 +12,16 @@ const MyBooking = () => {
       fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
         method: "GET",
         headers: {
-          'Accept': "application/json",
+          Accept: "application/json",
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       })
         .then((res) => res.json())
         .then((data) => setBookings(data));
     }
   }, [user]);
+
   return (
     <div>
       <h1 className="text-2xl font-bold text-slate-500 text-center"> Your Total Booking List - {bookings.length}</h1>
@@ -43,10 +44,12 @@ const MyBooking = () => {
                 <td>{booking.email}</td>
                 <td>{booking.selectedDate}</td>
                 <td>
-                  {(booking.ticketPrice || !booking.paid )&& <Link to={`/dashboard/payment/${booking._id}`}><button class="btn btn-xs bg-green-400 border-none">Payment</button></Link>}
+                  {(booking.ticketPrice || !booking.paid) && (
+                    <Link to={`/dashboard/payment/${booking._id}`}>
+                      <button class="btn btn-xs bg-green-400 border-none">Payment</button>
+                    </Link>
+                  )}
                   {/* {(booking.ticketPrice || booking.paid )&& <span class="btn btn-xs bg-green-400 border-none">Payment Done</span>} */}
-
-                
                 </td>
               </tr>
             ))}
