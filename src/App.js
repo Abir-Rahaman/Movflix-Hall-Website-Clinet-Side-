@@ -26,6 +26,8 @@ import MyReview from "./Components/Pages/Dahboard/MyReview";
 import AllUsers from './Components/Pages/Dahboard/AllUsers';
 import RequireAdmin from "./Components/Shared/RequireAdmin";
 import AddMovie from './Components/Pages/Dahboard/AddMovie';
+import ManageMovie from "./Components/Pages/Dahboard/ManageMovie";
+import PaymentSystem from "./Components/Pages/Dahboard/PaymentSystem";
 
 function App() {
   const [selected, setSelected] = React.useState(new Date());
@@ -54,9 +56,10 @@ function App() {
         <Route path="/signIn" element={<SignIn></SignIn>} /> 
         <Route path="/dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<MyBooking></MyBooking>} />
-          <Route path="review" element={<MyReview></MyReview>} />
+          <Route path="payment/:id" element={<PaymentSystem></PaymentSystem>} />
           <Route path="allUsers" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>} />
           <Route path="addMovie" element={<RequireAdmin><AddMovie></AddMovie></RequireAdmin>} />
+          <Route path="manageMovie" element={<RequireAdmin><ManageMovie></ManageMovie></RequireAdmin>} />
         </Route>
       </Routes>
       <Footer></Footer>

@@ -1,8 +1,9 @@
 import React from "react";
 import { toast } from 'react-hot-toast';
 
-const UserDetails = ({ user , index }) => {
-  const { email , role} = user;
+
+const UserDetails = ({ user , index, refetch }) => {
+  const { email , role } = user;
   const makeAdmin = () => {
     fetch(`http://localhost:5000/user/admin/${email}`, {
       method: "PUT",
@@ -23,9 +24,11 @@ const UserDetails = ({ user , index }) => {
     .then(data => {
       if(data.result.matchedCount > 0 ) {
         toast.success('Congratulation You are a Admin');
+        refetch();
        
       }
       console.log(data)
+
       
     })
   

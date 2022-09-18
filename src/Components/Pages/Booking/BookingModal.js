@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 
 const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}) => {
-  const {_id,MovieName,slots,RELEASEDATE,RUNTIME,CAST} = modalMovie;
+  const {_id,MovieName,slots,RELEASEDATE,RUNTIME,CAST,ticketPrice} = modalMovie;
   const [user, loading, error] = useAuthState(auth);
 
 
@@ -24,6 +24,7 @@ const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}
       releaseDate:RELEASEDATE,
       runtime:RUNTIME,
       actor:CAST,
+      ticketPrice,
       phoneNumber:e.target.number.value,
       slot
     }

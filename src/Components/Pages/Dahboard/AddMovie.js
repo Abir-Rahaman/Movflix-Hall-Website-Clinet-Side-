@@ -232,7 +232,7 @@ const AddMovie = () => {
                 </div>
                </div>
                 
-                <div class="form-control mt-6 mx-64 pb-20">
+                <div class="form-control mt-6 mx-64 pb-8">
                   <input
                     className="btn border-4 px-6 py-2 bg-transparent  text-black rounded-full font-bold hover:bg-gradient-to-r from-green-600 to-green-400 duration-700"
                     type="submit"
