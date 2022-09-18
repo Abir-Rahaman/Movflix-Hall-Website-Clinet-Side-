@@ -1,17 +1,20 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useQuery } from "react-query";
 import UserDetails from './UserDetails';
 
 
 const AllUsers = () => {
 
-
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/user")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
+  const {data:users} = useQuery('user',()=> fetch("http://localhost:5000/user")
+      .then((res) => res.json()))
+  
+  // const [users, setUsers] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/user")
+  //     .then((res) => res.json())
+  //     .then((data) => setUsers(data));
+  // }, []);
 
 
   return (
