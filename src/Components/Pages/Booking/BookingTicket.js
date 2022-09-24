@@ -8,12 +8,8 @@ import Spinner from "../../Shared/Spinner";
 
 const BookingTicket = ({ selected, setSelected }) => {
   const [user, loading, error] = useAuthState(auth);
-  
-
-
   const [movies, setMovies] = useState([]);
-
-  const [modalMovie, setModalMovie] = useState([]);
+  const [modalMovie, setModalMovie] = useState(null);
   useEffect(() => {
     fetch("http://localhost:5000/movie")
       .then(res => res.json())

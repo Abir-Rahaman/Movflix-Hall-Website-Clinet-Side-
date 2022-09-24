@@ -23,7 +23,7 @@ const Movires = ({ movie,setModalMovie }) => {
       <h2 class="">Schedule: {slots}</h2>
       <h2 class="">Info: {details}</h2>
       <div class="card-actions justify-start">
-        <label onClick={()=> setModalMovie(movie)} for="booking-modal" class="btn btn-primary">Select</label>
+        <label onClick={()=> setModalMovie(movie)} for="booking-modal" class="btn btn-primary">Book Ticket</label>
       </div>
     </div>
   </div>

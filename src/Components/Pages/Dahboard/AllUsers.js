@@ -6,15 +6,15 @@ import UserDetails from './UserDetails';
 
 const AllUsers = () => {
 
-  const {data:users} = useQuery('user',()=> fetch("http://localhost:5000/user")
-      .then((res) => res.json()))
+  // const {data:users} = useQuery('user',()=> fetch("http://localhost:5000/user")
+  //     .then((res) => res.json()))
   
-  // const [users, setUsers] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/user")
-  //     .then((res) => res.json())
-  //     .then((data) => setUsers(data));
-  // }, []);
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/user")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
 
 
   return (
