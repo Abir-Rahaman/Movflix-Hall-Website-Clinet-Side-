@@ -1,6 +1,6 @@
 [
   {
-    "picture": "https://i.ibb.co/9Hfw6XK/movie1.jpg",
+    "image": "https://i.ibb.co/9Hfw6XK/movie1.jpg",
     "ticketPrice": 6,
     "MovieName": "Din The Day",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -13,7 +13,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/s5mxFNn/movie2.jpg",
+    "image": "https://i.ibb.co/s5mxFNn/movie2.jpg",
     "ticketPrice": 5,
     "MovieName": "Poran",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -26,7 +26,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/BK4RNtC/movie3.jpg",
+    "image": "https://i.ibb.co/BK4RNtC/movie3.jpg",
     "ticketPrice": 12,
     "MovieName": "Haowa",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -39,7 +39,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/m9tncV9/movie4.jpg",
+    "image": "https://i.ibb.co/m9tncV9/movie4.jpg",
     "ticketPrice": 7,
     "MovieName": "Orphan Nemisis",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -52,7 +52,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/mHhYqpy/movie5.jpg",
+    "image": "https://i.ibb.co/mHhYqpy/movie5.jpg",
     "ticketPrice":9,
     "MovieName": "Guadalupe Rider Ghost",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -65,7 +65,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/Kwpd6KJ/movie6.jpg",
+    "image": "https://i.ibb.co/Kwpd6KJ/movie6.jpg",
     "ticketPrice":16,
     "MovieName": "SpiderMan",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -78,7 +78,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/BK4RNtC/movie3.jpg",
+    "image": "https://i.ibb.co/BK4RNtC/movie3.jpg",
     "ticketPrice": 12,
     "MovieName": "Keller Hawa",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -91,7 +91,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/mHhYqpy/movie5.jpg",
+    "image": "https://i.ibb.co/mHhYqpy/movie5.jpg",
     "ticketPrice": 9,
     "MovieName": "Farley Nights",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -104,7 +104,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/s5mxFNn/movie2.jpg",
+    "image": "https://i.ibb.co/s5mxFNn/movie2.jpg",
     "ticketPrice": 9,
     "MovieName": "Simmons Poran",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",
@@ -117,7 +117,7 @@
     "slots": ["03.00 PM - 05.30 PM", "06.30 PM - 09.00 PM", "11.00 AM - 1.30  PM"]
   },
   {
-    "picture": "https://i.ibb.co/9Hfw6XK/movie1.jpg",
+    "image": "https://i.ibb.co/9Hfw6XK/movie1.jpg",
     "ticketPrice":7,
     "MovieName": "Din The Austria",
     "DIRECTOR": "MURTAZA OTASH JAMJAM",

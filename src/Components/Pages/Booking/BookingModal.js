@@ -52,7 +52,9 @@ const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}
         toast.error('You have already Booked a Movie')
       }
       setModalMovie(null)
+   
     });
+ 
 
   
 

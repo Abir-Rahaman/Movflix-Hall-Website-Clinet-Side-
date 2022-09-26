@@ -8,10 +8,9 @@ const CheckoutForm = ({payment}) => {
   const elements = useElements();
   const [cardError , setCardError] = useState('')
   // console.log(payment)
-  const {ticketPrice} = payment;
+  const {Ticket_Price} = payment;
   const [clientSecret, setClientSecret] = useState('');
 
-   
    
     useEffect(()=> {
       fetch("http://localhost:5000/create-payment-intent" ,{
@@ -22,18 +21,20 @@ const CheckoutForm = ({payment}) => {
           },
 
 
-          body: JSON.stringify({ticketPrice})
+          body: JSON.stringify({Ticket_Price})
              
         })
           .then(res => res.json())
           .then(data => {
           
-              console.log(data); 
+             if(data?.clientSecret){
+              setClientSecret(data.clientSecret)
+             }
           
        
       })
 
-    },[ticketPrice])
+    },[Ticket_Price])
     const handleSubmit = async(e) =>{
        e.preventDefault();
        if(!elements || !stripe){
@@ -42,7 +43,7 @@ const CheckoutForm = ({payment}) => {
        const card = elements.getElement(CardElement);
 
 
-       if (card == null) {
+       if (card === null) {
          return;
        }
        const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -76,13 +77,10 @@ const CheckoutForm = ({payment}) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe}>
+                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>
-            {
-                cardError && <p className='text-red-500'>{cardError}</p>
-            }
            
       {cardError && <p> <small  className="text-red-500 font-bold">{cardError}</small>  </p>}
     

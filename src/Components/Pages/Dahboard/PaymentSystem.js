@@ -15,18 +15,17 @@ const PaymentSystem = () => {
   
 
   const { id } = useParams();
-  const [payment, setPayment] = useState({});
-  const {movieName, ticketPrice} = payment;
+  const [payment, setPayment] = useState([]);
+  console.log(payment)
+
+
   useEffect(() => {
     fetch(`http://localhost:5000/booking/${id}`, {
       method: "GET",
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
-      },
     })
       .then(res => res.json())
       .then(data => {
-        setPayment(data);
+        setPayment(data); 
       });
   }, [id]);
   
@@ -41,10 +40,10 @@ const PaymentSystem = () => {
           <div class="card-body">
             <p className="text-green-400 font-bold">Hello , {user.displayName} </p>
             <p>
-              Please Pay for <span className="text-green-400 font-extrabold">{movieName} </span> Movie
+              Please Pay for <span className="text-green-400 font-extrabold">{payment.movieName} </span> Movie
             </p>
             <p>
-              Price of this Ticket <span className="text-green-400 font-extrabold">$ {ticketPrice} </span>
+              Price of this Ticket <span className="text-green-400 font-extrabold">${payment.ticketPrice} </span>
             </p>
           </div>
         </div>

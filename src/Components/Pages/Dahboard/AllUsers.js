@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import UserDetails from './UserDetails';
+import DeleteMovie from './DeleteMovie';
 
 
 const AllUsers = () => {
@@ -10,6 +11,7 @@ const AllUsers = () => {
   //     .then((res) => res.json()))
   
   const [users, setUsers] = useState([]);
+  const [deleteAdmin, setDeleteAdmin] = useState(null);
   useEffect(() => {
     fetch("http://localhost:5000/user")
       .then((res) => res.json())
@@ -32,11 +34,12 @@ const AllUsers = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <UserDetails user={user} index={index} ></UserDetails>
+              <UserDetails user={user} index={index} setDeleteAdmin={setDeleteAdmin} ></UserDetails>
             ))}
           </tbody>
         </table>
       </div>
+         {deleteAdmin && <DeleteMovie deleteAdmin={deleteAdmin}></DeleteMovie>}
     </div>
   );
 };
