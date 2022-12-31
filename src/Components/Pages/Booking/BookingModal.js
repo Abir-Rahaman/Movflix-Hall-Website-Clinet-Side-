@@ -45,13 +45,9 @@ const BookingModal = ({ modalMovie,setModalMovie, selected, setSelected ,movies}
 
     .then(res => res.json())
     .then(data => {
-      if(data.success) {
         toast.success('Your Booking Successfully Done')
-      }
-      else{
-        toast.error('You have already Booked a Movie')
-      }
-      setModalMovie(null)
+         setModalMovie(null)
+         console.log(data);
    
     });
  
