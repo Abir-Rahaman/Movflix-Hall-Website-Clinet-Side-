@@ -1,23 +1,20 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import UserDetails from './UserDetails';
-import DeleteMovie from './DeleteMovie';
-
+import UserDetails from "./UserDetails";
+import DeleteMovie from "./DeleteMovie";
 
 const AllUsers = () => {
-
-  // const {data:users} = useQuery('user',()=> fetch("http://localhost:5000/user")
+  // const {data:users} = useQuery('user',()=> fetch("https://movie-server-side.vercel.app/user")
   //     .then((res) => res.json()))
-  
+
   const [users, setUsers] = useState([]);
   const [deleteAdmin, setDeleteAdmin] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://movie-server-side.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
-
 
   return (
     <div>
@@ -34,12 +31,12 @@ const AllUsers = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <UserDetails user={user} index={index} setDeleteAdmin={setDeleteAdmin} ></UserDetails>
+              <UserDetails user={user} index={index} setDeleteAdmin={setDeleteAdmin}></UserDetails>
             ))}
           </tbody>
         </table>
       </div>
-         {deleteAdmin && <DeleteMovie deleteAdmin={deleteAdmin}></DeleteMovie>}
+      {deleteAdmin && <DeleteMovie deleteAdmin={deleteAdmin}></DeleteMovie>}
     </div>
   );
 };

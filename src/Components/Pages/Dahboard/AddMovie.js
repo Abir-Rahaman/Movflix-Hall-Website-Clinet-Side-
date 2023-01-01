@@ -21,8 +21,8 @@ const AddMovie = () => {
       method: "POST",
       body: formData,
     })
-      .then(res => res.json())
-      .then(result => {
+      .then((res) => res.json())
+      .then((result) => {
         if (result.success) {
           const image = result.data.url;
           const movie = {
@@ -38,7 +38,7 @@ const AddMovie = () => {
             details: data.details,
             image: image,
           };
-          fetch("http://localhost:5000/movie", {
+          fetch("https://movie-server-side.vercel.app/movie", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -46,22 +46,21 @@ const AddMovie = () => {
             },
             body: JSON.stringify(movie),
           })
-            .then(res=> res.json())
-            .then(inserted => {
+            .then((res) => res.json())
+            .then((inserted) => {
               if (inserted) {
                 toast.success(" Movie Added Successfully Done");
-                console.log(inserted)
+                console.log(inserted);
               } else {
                 toast.error("Already Added This Movie On Database");
               }
-            
-          
+
               reset();
             });
         }
       });
 
-    //  const ClientUrl = `http://localhost:5000/movie`
+    //  const ClientUrl = `https://movie-server-side.vercel.app/movie`
     //  fetch(ClientUrl ,{
     //   method:'POST',
     //   headers:{

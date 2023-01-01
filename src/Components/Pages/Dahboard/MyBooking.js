@@ -10,7 +10,7 @@ const MyBooking = () => {
   console.log(bookings);
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+      fetch(`https://movie-server-side.vercel.app/bookings?email=${user?.email}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -28,7 +28,7 @@ const MyBooking = () => {
       <div class="overflow-x-auto mt-6">
         <table class="table table-zebra w-full ">
           <thead>
-            <tr >
+            <tr>
               <th>Movie</th>
               <th>Booking Seat</th>
               <th>Booking Time</th>
@@ -36,12 +36,11 @@ const MyBooking = () => {
               <th>Ticket</th>
               <th>Price</th>
               <th>Booking Payment</th>
-             
             </tr>
           </thead>
           <tbody>
             {bookings.map((booking, index) => (
-              <tr >
+              <tr>
                 <td>{booking.Movie_Name}</td>
                 <td>{booking.Booking_Seat}</td>
                 <td>{booking.Booking_Time}</td>
@@ -49,12 +48,12 @@ const MyBooking = () => {
                 <td>{booking.Quantity_Of_Ticket}</td>
                 <td>{booking.Ticket_Price}$</td>
                 <td>
-                  {(booking.ticketPrice || !booking.paid) && 
+                  {(booking.ticketPrice || !booking.paid) && (
                     <Link to={`/dashboard/payment/${booking._id}`}>
                       <button class="btn btn-xs bg-green-400 border-none">Payment</button>
                     </Link>
-                  }
-                  {(booking.ticketPrice || booking.paid )&& <span class="btn btn-xs bg-green-400 border-none">Payment Done</span>}
+                  )}
+                  {(booking.ticketPrice || booking.paid) && <span class="btn btn-xs bg-green-400 border-none">Payment Done</span>}
                 </td>
               </tr>
             ))}
